@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:alcool_gasolina/widgets/input.widget.dart';
 import 'package:alcool_gasolina/widgets/logo.widget.dart';
 import 'package:flutter/material.dart';
@@ -12,7 +14,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Álcool ou Gasolina',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.deepPurple,
@@ -33,6 +35,52 @@ class HomePage extends StatelessWidget {
       body: ListView(
         children: <Widget>[
           Logo(),
+          Container(
+            margin: EdgeInsets.all(30),
+            decoration: BoxDecoration(
+              color: Colors.white.withOpacity(0.8),
+              borderRadius: BorderRadius.circular(25),
+            ),
+            child: Column(
+              children: [
+                SizedBox(
+                  height: 50,
+                ),
+                Text(
+                  'Compensa utilizar álcool',
+                  style: TextStyle(
+                    color: Theme.of(context).primaryColor,
+                    fontSize: 40,
+                    fontFamily: 'Big Shoulders Display',
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+                SizedBox(
+                  height: 60,
+                ),
+                Container(
+                  margin: EdgeInsets.all(30),
+                  width: double.infinity,
+                  height: 60,
+                  decoration: BoxDecoration(
+                    color: Colors.white.withOpacity(0.8),
+                    borderRadius: BorderRadius.circular(60),
+                  ),
+                  child: TextButton(
+                    child: Text(
+                      'CALCULAR NOVAMENTE',
+                      style: TextStyle(
+                        color: Theme.of(context).primaryColor,
+                        fontSize: 25,
+                        fontFamily: 'Big Shoulders Display',
+                      ),
+                    ),
+                    onPressed: () {},
+                  ),
+                )
+              ],
+            ),
+          ),
           Input(
             label: 'Gasolina',
             ctrl: _gasCtrl,
